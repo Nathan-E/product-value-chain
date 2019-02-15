@@ -4,6 +4,7 @@ class Producer {
       Producer.instance = this;
     }
     return Producer.instance;
+    this.type = type;
   }
 }
 
