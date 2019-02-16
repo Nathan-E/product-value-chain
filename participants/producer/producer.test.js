@@ -1,7 +1,5 @@
 const Producer = require('./producer');
 
-const Producer = require('./producer');
-
 const Pharmacy = new Producer('Producer');
 const Paracetamol = new Producer('Producer')
 
@@ -11,4 +9,7 @@ test('Checks if the Producer class can instantiate', () => {
 
 test('Ensures that only one instance of the Producer class exist', () => {
   expect(Pharmacy === Paracetamol).toBeTruthy();
+});
+test('check the flowChannel function', () => {
+  expect()
 });
