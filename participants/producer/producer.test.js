@@ -10,6 +10,3 @@ test('Checks if the Producer class can instantiate', () => {
 test('Ensures that only one instance of the Producer class exist', () => {
   expect(Pharmacy === Paracetamol).toBeTruthy();
 });
-test('check the flowChannel function', () => {
-  expect()
-});
