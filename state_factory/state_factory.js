@@ -1,4 +1,7 @@
-
+const Producer = require('../participants/producer/producer');
+const Retailer = require('../participants/retailer/retailer');
+const Consumer = require('../participants/consumer/consumer');
+const Recycler = require('../participants/recycler/recycler');
 
 class StateFactory {
   constructor(chain) {
