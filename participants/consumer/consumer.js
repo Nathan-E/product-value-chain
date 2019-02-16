@@ -1,3 +1,7 @@
+const fs = require('fs');
+const Recycler = require('../recycler/recycler');
+// const file = require('../../data/result.txt')
+
 class Consumer {
   constructor(state, product){
     this.product = product;
@@ -6,7 +10,7 @@ class Consumer {
     this.flowChannel = (productName) => {
       const data = `Channelling ${this.product} from the ${this.name} to the ${this.nextState}`;
       //chains the next state
-      fs.appendFileSync('../data/result.txt', `${data}\n`);
+      fs.appendFileSync('../../data/output.txt', `${data}\n`);
       console.log(data);
       state.changeState(new Recycler(state, product));
     }
