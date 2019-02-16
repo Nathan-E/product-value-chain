@@ -12,3 +12,5 @@ class Retailer {
     }
   }
 }
+
+module.exports = Retailer;
