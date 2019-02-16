@@ -13,3 +13,5 @@ class Recycler {
     }
   };
 }
+
+module.exports = Recycler;
