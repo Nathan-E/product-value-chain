@@ -1,3 +1,6 @@
+const fs = require('fs');
+const Retailer = require('../retailer/retailer');
+
 class Producer {
   constructor(state) {
     this.name = 'Producer';
@@ -5,7 +8,7 @@ class Producer {
     this.flowChannel = (product) => {
       const data = `Channelling ${product} from the ${this.name} to the ${this.nextState}`;
       //chains the next state
-      fs.appendFileSync('../data/result.txt', `${data}\n`);
+      fs.appendFileSync('../../data/output.txt', `${data}\n`);
       console.log(data);
       state.changeState(new Retailer(state, product));
     }
