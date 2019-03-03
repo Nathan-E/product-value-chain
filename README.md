@@ -40,7 +40,7 @@ This is the entry point of the program.
 1. When the app.js is ran, the read function reads the input file, used regex to remove impunities.
 2. Each cleaned line represents a state of the a unique product with its Stage(Producer, Retailer, Consumer or Recycler ).
 NB: Some of the products are without a Stage.
-3.Each product with a unique ID, state and url is passed to the run function in the processor/runner/ file.
+3. Each product with a unique ID, state and url is passed to the run function in the processor/runner/ file.
 NB: The run function made used of default parameter by setting the Stage of products without Stage to 'Producer'.
 NB: The url is the file path to the output.txt file.
 4. The product and its Stage is then passed to the product_cycler function in the product_cycler/ folder, where the state_factory function is called to provide the unique class of the Stage for the product at runtime.
