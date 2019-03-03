@@ -3,6 +3,13 @@ The application mimics the life cycle of a Product through a value chain as show
             Producer ==> Retailer ==> Consumer ==> Recycler 
             (then back to the producer, the chain continues)
 
+To run this application, execute the following command inorder
+1. npm install
+2. node app.js
+
+NB: The activity of the app is logged to the console and to the output.txt file in the data folder.
+
+
 In the home directory, 
 
 # participants: 
@@ -27,6 +34,14 @@ This container two files, the runner and the loader.js. The loader.js file is us
 This contains fs.js file used to mock node JS fs module.
 
 # app.js:
-This contains a f
+This is the entry point of the program. 
 
 # Product Flow
+1. When the app.js is ran, the read function reads the input file, used regex to remove impunities.
+2. Each cleaned line represents a state of the a unique product with its Stage(Producer, Retailer, Consumer or Recycler ).
+NB: Some of the products are without a Stage.
+3.Each product with a unique ID, state and url is passed to the run function in the processor/runner/ file.
+NB: The run function made used of default parameter by setting the Stage of products without Stage to 'Producer'.
+NB: The url is the file path to the output.txt file.
+4. The product and its Stage is then passed to the product_cycler function in the product_cycler/ folder, where the state_factory function is called to provide the unique class of the Stage for the product at runtime.
+5. Then the start method of the product_cycler is called which start the real time change of Stage of the unique product, as that happens, the activity is logged to the console and also to the output.txt file in real time
