@@ -1,12 +1,13 @@
+jest.mock('fs');
 const Recycler = require('./recycler');
+const fs = require('fs');
 
-const Moses = new Recycler('Recycler');
-const Grace = new Recycler('Recycler')
+const Moses = new Recycler(this, 'sofa');
 
 test('Checks if the Retailer class can instantiate', () => {
   expect(Moses).toBeInstanceOf(Recycler);
 });
-
-test('Ensures that several instances of the Retailer class can exist', () => {
-  expect(Grace === Moses).toBeFalsy();
-});
+test('Mocks the fs module', () => {
+  Moses.flowChannel('sofa', 'url');
+  expect(fs.database['url'].trim() === 'sofa from Recycler to Producer').toBeTruthy();
+})

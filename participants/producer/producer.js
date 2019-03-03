@@ -1,23 +1,22 @@
 const fs = require('fs');
-const Retailer = require('../retailer/retailer');
+const States = require('../../processor/loader');
+const check = require('../../monitor/monitor');
 
 //Producer Class
 class Producer {
-  constructor(state) {
+  constructor(state, product) {
+    this.product = product;
     this.name = 'Producer';
     this.nextState = 'Retailer';
-    this.flowChannel = (product) => {
-      const data = `Channelling ${product} from the ${this.name} to the ${this.nextState}`;
+    this.data = `${this.product} from ${this.name} to ${this.nextState}`;
+    this.flowChannel = (product, url) => {
       //appends the product flow channels to the output file
-      fs.appendFileSync('../../data/output.txt', `${data}\n`);
-      console.log(data);
-      //calls in the next State
-      state.changeState(new Retailer(state, product));
+      fs.appendFile(url, `${this.data}\n`, function (err) {
+        // if (err) console.log(err);
+        if (check.value == null) state.changeState(new States.Retailer(state, product));
+      });
+      console.log(this.data);
     }
-    if (!Producer.instance) {
-      Producer.instance = this;
-    }
-    return Producer.instance;
   }
 }
 
