@@ -11,6 +11,5 @@ test('Checks if the Retailer class can instantiate', () => {
 test('Mocks the fs module', () => {
   const Kazeem = new Consumer(this, 'cakes')
   Kazeem.flowChannel('cakes', 'url');
-  console.log(fs.database)
   expect(fs.database['url'].trim() === 'cakes from Consumer to Recycler').toBeTruthy();
 });
