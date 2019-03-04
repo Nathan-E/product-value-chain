@@ -1,8 +1,8 @@
 const StateFactory = require('./state_factory');
-const Producer = require('../participants/producer/producer');
-const Retailer = require('../participants/retailer/retailer');
-const Consumer = require('../participants/consumer/consumer');
-const Recycler = require('../participants/recycler/recycler');
+const Producer = require('../States/producer/producer');
+const Retailer = require('../States/retailer/retailer');
+const Consumer = require('../States/consumer/consumer');
+const Recycler = require('../States/recycler/recycler');
 
 const stateFactory = new StateFactory(this);
 
