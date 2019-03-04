@@ -1,3 +1,4 @@
+//Preloads all the modules of the States
 module.exports.Producer = require('../participants/producer/producer');
 module.exports.Retailer = require('../participants/retailer/retailer');
 module.exports.Consumer = require('../participants/consumer/consumer');

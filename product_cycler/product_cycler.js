@@ -13,7 +13,7 @@ class ProductCycler {
       await currentState.flowChannel(product, url);
     };
 
-    //start the ProducterCycler of state
+    //start the ProducterCycler
     this.start = () => {
       currentState.flowChannel(product, url);
     };
