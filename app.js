@@ -2,7 +2,7 @@ const fs = require('fs');
 const run = require('./processor/runner/runner');
 let check = require('./monitor/monitor');
 
-const regex = /[\,\/\)\&\*\=\>\{\}\'\"\[\]\ˆ\%\$\#\@\!\`\˜\.\<\;\:\_\+\=\(\-\\\/\|]/g;
+// const regex = /[\,\/\)\&\*\=\>\{\}\'\"\[\]\ˆ\%\$\#\@\!\`\˜\.\<\;\:\_\+\=\(\-\\\/\|]/g;
 
 const id = (function* IdGen() {
   let x = 0;
@@ -18,7 +18,8 @@ let idw = null;
 
 //reads the input file
 function read() {
-  data = fs.readFileSync('./data/input.txt', 'utf-8').replace(regex, '').split('\n')
+  let data = fs.readFileSync('./data/input.txt', 'utf-8').replace(/[^\w\s]/gm, '').split('\n');
+  // data = fs.readFileSync('./data/input.txt', 'utf-8').replace(regex, '').split('\n')
   let result = data.length;
 
   data.forEach(function (line) {

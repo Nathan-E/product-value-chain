@@ -8,8 +8,8 @@ test('Checks if the Retailer class can instantiate', () => {
   expect(Dare).toBeInstanceOf(Consumer);
 });
 
-test('Mocks the fs module', () => {
-  const Kazeem = new Consumer(this, 'cakes')
+test('Mocks the appendFile method of the fs module', () => {
+  const Kazeem = new Consumer(this, 'cakes');
   Kazeem.flowChannel('cakes', 'url');
   expect(fs.database['url'].trim() === 'cakes from Consumer to Recycler').toBeTruthy();
 });
