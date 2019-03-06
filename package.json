@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --coverage --watchAll"
+    "test": "npx jest --coverage --watchAll",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
