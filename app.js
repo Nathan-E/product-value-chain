@@ -2,8 +2,6 @@ const fs = require('fs');
 const run = require('./processor/runner/runner');
 let check = require('./monitor/monitor');
 
-// const regex = /[\,\/\)\&\*\=\>\{\}\'\"\[\]\ˆ\%\$\#\@\!\`\˜\.\<\;\:\_\+\=\(\-\\\/\|]/g;
-
 const id = (function* IdGen() {
   let x = 0;
   while (true) yield ++x;
@@ -31,7 +29,7 @@ function read() {
       .split(' ');
     if (product.length > 1) {
       //concatnate the product name and it state...into the run function
-      let id1 = id.next().value
+      let id1 = id.next().value;
       run([id1, ...product.slice(0, 2)].join(' '), product[2], './data/output.txt');
     }
   });
