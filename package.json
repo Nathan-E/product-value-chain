@@ -16,7 +16,8 @@
     "url": "https://github.com/Nathan-E/product-value-chain/issues"
   },
   "homepage": "https://github.com/Nathan-E/product-value-chain#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "jest": "^24.1.0"
   }
 }
