@@ -3,9 +3,11 @@ The application mimics the life cycle of a Product through a value chain as show
             Producer ==> Retailer ==> Consumer ==> Recycler 
             (then back to the producer, the chain continues)
 
-To run this application, execute the following command inorder
-1. npm install
-2. node app.js
+To run this application, execute the following command inorder:
+npm start
+To run the test cases, executes the command below:
+npm test
+
 
 NB: The activity of the app is logged to the console and to the output.txt file in the data folder.
 
