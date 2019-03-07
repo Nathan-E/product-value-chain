@@ -1,6 +1,5 @@
 const fs = require('fs');
 const States = require('../../processor/loader');
-const stopper = require('../../monitor/monitor');
 
 //Producer Class
 class Producer {
@@ -15,7 +14,7 @@ class Producer {
       //appends the product to the output file
       fs.appendFile(url, `${this.data}\n`, function (err) {
         // moves the product to the next state
-        if (stopper.value == null) state.changeState(new States.Retailer(state, product));
+         state.changeState(new States.Retailer(state, product));
       });
       console.log(this.data);
     }
