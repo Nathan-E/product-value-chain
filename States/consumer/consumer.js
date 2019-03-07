@@ -10,7 +10,7 @@ class Consumer {
     this.data = `${this.product} from ${this.name} to ${this.nextState}`;
 
     //moves the product to the next Stage
-    this.flowChannel = (product, url) => {
+    this.nextState = (product, url) => {
       //appends the product  to the output file
       fs.appendFile(url, `${this.data}\n`, function (err) {
         // moves the product to the next state

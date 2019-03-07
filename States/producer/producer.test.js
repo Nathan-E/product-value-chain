@@ -10,6 +10,6 @@ test('Checks if the Producer class can be instantiated', () => {
 
 test('Mocks the appendFile method of the fs module', () => {
   const Paracetamol = new Producer(this, 'pepsi')
-  Paracetamol.flowChannel('pepsi', 'url');
+  Paracetamol.nextState('pepsi', 'url');
   expect(fs.database['url'].trim() === 'pepsi from Producer to Retailer').toBeTruthy();
 })

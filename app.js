@@ -1,43 +1,32 @@
 const fs = require('fs');
 const run = require('./processor/runner/runner');
-let check = require('./monitor/monitor');
+const stopper = require('./monitor/monitor');
 
-// const regex = /[\,\/\)\&\*\=\>\{\}\'\"\[\]\ˆ\%\$\#\@\!\`\˜\.\<\;\:\_\+\=\(\-\\\/\|]/g;
-
-const id = (function* IdGen() {
-  let x = 0;
-  while (true) yield ++x;
+//Generates unique Id for product
+const productId = (function* IdGen() {
+  let id = 0;
+  while (true) yield ++id;
 })();
-
-const id2 = (function* IdGen() {
-  let x = 0;
-  while (true) yield ++x;
-})();
-
-let idw = null;
 
 //reads the input file
 function read() {
+  //reads the input file, removes impunities and convert it to an array
   let data = fs.readFileSync('./data/input.txt', 'utf-8').replace(/[^\w\s]/gm, '').split('\n');
-  // data = fs.readFileSync('./data/input.txt', 'utf-8').replace(regex, '').split('\n')
-  let result = data.length;
 
+  //loops through the array
   data.forEach(function (line) {
-    idw = id2.next().value;
-
-    product = line.replace(/[^\w\s]/gm, '')
+    //removes spaces and tabs
+    stage = line.replace(/[^\w\s]/gm, '')
       .replace(/\s\s+/gm, ' ')
       .trim()
       .split(' ');
-    if (product.length > 1) {
-      //concatnate the product name and it state...into the run function
-      let id1 = id.next().value
-      run([id1, ...product.slice(0, 2)].join(' '), product[2], './data/output.txt');
+    if (stage.length > 1) {
+      //passes the product with a unique ID, its state and the to the output file
+      run([productId.next().value, ...stage.slice(0, 2)].join(' '), stage[2], './data/output.txt');
     }
   });
-  if (result === idw) {
-    check.value = true;
-  };
+  //reflect when the last item has been read, and changes the value of the stopper
+  stopper.value = true;
 
 };
 

@@ -10,12 +10,12 @@ class ProductCycler {
     //changes the state to the next state on the value chain
     this.changeState = async (state) => {
       currentState = state;
-      await currentState.flowChannel(product, url);
+      await currentState.nextState(product, url);
     };
 
     //start the ProducterCycler
     this.start = () => {
-      currentState.flowChannel(product, url);
+      currentState.nextState(product, url);
     };
   }
 }

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const States = require('../../processor/loader');
-const check = require('../../monitor/monitor');
+const stopper = require('../../monitor/monitor');
 
 //Producer Class
 class Producer {
@@ -11,11 +11,11 @@ class Producer {
     this.data = `${this.product} from ${this.name} to ${this.nextState}`;
 
     //moves the product to the next Stage
-    this.flowChannel = (product, url) => {
+    this.nextState = (product, url) => {
       //appends the product to the output file
       fs.appendFile(url, `${this.data}\n`, function (err) {
         // moves the product to the next state
-        if (check.value == null) state.changeState(new States.Retailer(state, product));
+        if (stopper.value == null) state.changeState(new States.Retailer(state, product));
       });
       console.log(this.data);
     }

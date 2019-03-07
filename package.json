@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx jest --coverage --watchAll",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
     "url": "https://github.com/Nathan-E/product-value-chain/issues"
   },
   "homepage": "https://github.com/Nathan-E/product-value-chain#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "jest": "^24.1.0"
   }
 }
