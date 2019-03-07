@@ -1,5 +1,6 @@
 const fs = require('fs');
 const States = require('../../processor/loader');
+const stopper = require('../../monitor/monitor');
 
 //Recycler Class
 class Recycler {
@@ -14,7 +15,7 @@ class Recycler {
       //appends the product to the output file
       fs.appendFile(url, `${this.data}\n`, function (err) {
         // moves the product to the next state
-        state.changeState(new States.Producer(state, product));
+      if (stopper.value == null) state.changeState(new States.Producer(state, product));
       });
       console.log(this.data);
     }
