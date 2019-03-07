@@ -1,6 +1,5 @@
 const fs = require('fs');
 const States = require('../../processor/loader');
-// let check = require('../../monitor/monitor');
 
 //Recycler Class
 class Recycler {
@@ -11,7 +10,7 @@ class Recycler {
     this.data = `${this.product} from ${this.name} to ${this.nextState}`;
     
     //moves the product to the next Stage
-    this.flowChannel = (product, url) => {
+    this.nextState = (product, url) => {
       //appends the product to the output file
       fs.appendFile(url, `${this.data}\n`, function (err) {
         // moves the product to the next state
